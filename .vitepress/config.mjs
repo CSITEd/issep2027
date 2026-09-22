@@ -4,11 +4,9 @@ export default defineConfig({
   title: 'ISSEP 2027',
   description: 'ISSEP 2027 Conference — Belgium',
 
-  // IMPORTANT: if the site is published at https://<user>.github.io/<repo>/,
-  // replace the value below with '/<repo-name>/'.
-  // For a user/organization site (https://<user>.github.io/)
-  // or a custom domain, use '/'.
-  base: '/issep2027-site/',
+  // Served from the custom domain issep2027.csited.be (see public/CNAME),
+  // so the site lives at the domain root.
+  base: '/',
 
   cleanUrls: true,
 
@@ -60,6 +58,9 @@ export default defineConfig({
   },
 
   themeConfig: {
+    search: {
+      provider: 'local',
+    },
     socialLinks: [
       // { icon: 'github', link: 'https://github.com/<organisation>/<depot>' },
     ],

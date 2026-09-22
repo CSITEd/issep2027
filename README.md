@@ -1,21 +1,22 @@
 # Site ISSEP 2027
 
-Site statique de la conférence ISSEP 2027 (Belgique), construit avec [VitePress](https://vitepress.dev/), en français (langue par défaut) et en anglais.
+Site statique de la conférence ISSEP 2027 (Belgique), construit avec [VitePress](https://vitepress.dev/), en anglais (langue par défaut) et en français. Publié sur **https://issep2027.csited.be**.
 
 ## Structure
 
 ```
 .
-├── .vitepress/config.mjs   # configuration du site (nav, langues, thème)
-├── index.md                # page d'accueil (FR)
-├── programme.md
-├── intervenants.md
-├── lieu.md
-├── inscription.md
-├── contact.md
-├── en/                      # version anglaise (mêmes pages)
-├── public/                  # fichiers statiques (logo, images...)
-└── .github/workflows/deploy.yml  # déploiement automatique sur GitHub Pages
+├── .vitepress/
+│   ├── config.mjs           # configuration du site (nav, langues, thème)
+│   └── theme/                # thème personnalisé (bannière avec photo en fond)
+├── index.md                  # page d'accueil (EN)
+├── venue.md
+├── committees.md
+├── fr/                        # version française (mêmes pages)
+├── public/
+│   ├── namur-landscape.jpg   # photo de fond de la page d'accueil
+│   └── CNAME                  # domaine personnalisé pour GitHub Pages
+└── .github/workflows/deploy.yml  # build + déploiement automatique sur push
 ```
 
 ## Développement local
@@ -38,18 +39,29 @@ yarn docs:build
 yarn docs:preview   # pour prévisualiser le build en local
 ```
 
-## Déploiement sur GitHub Pages
+## Déploiement automatique sur GitHub Pages (domaine personnalisé)
 
-1. Créez un dépôt GitHub et poussez ce projet sur la branche `main`.
-2. Dans les paramètres du dépôt, section **Pages**, choisissez **GitHub Actions** comme source.
-3. Ouvrez `.vitepress/config.mjs` et mettez à jour la valeur de `base` :
-   - `'/<nom-du-depot>/'` si le site est servi depuis `https://<utilisateur>.github.io/<nom-du-depot>/` ;
-   - `'/'` s'il s'agit d'un site utilisateur/organisation (`https://<utilisateur>.github.io/`) ou d'un domaine personnalisé.
-4. À chaque `push` sur `main`, le workflow `.github/workflows/deploy.yml` construit et publie automatiquement le site.
+Le dépôt est [CSITEd/issep2027](https://github.com/CSITEd/issep2027). Le workflow `.github/workflows/deploy.yml` build et publie automatiquement le site à chaque `push` sur `main`. Le fichier `public/CNAME` (contenant `issep2027.csited.be`) est inclus dans le build, et `base: '/'` dans `.vitepress/config.mjs` est déjà configuré pour un domaine personnalisé (pas de sous-chemin de type `/issep2027-site/`).
+
+Il reste deux réglages à faire une seule fois, **en dehors du code** :
+
+1. **Activer GitHub Pages sur le dépôt**
+   Dans le dépôt GitHub → **Settings → Pages** → section *Build and deployment* → **Source : GitHub Actions**.
+
+2. **Déclarer le domaine personnalisé et configurer le DNS**
+   - Toujours dans **Settings → Pages**, section *Custom domain*, entrez `issep2027.csited.be` et sauvegardez.
+   - Chez votre fournisseur DNS pour `csited.be`, ajoutez un enregistrement **CNAME** :
+     | Type  | Nom (hôte)  | Valeur              |
+     |-------|-------------|----------------------|
+     | CNAME | `issep2027` | `csited.github.io.`  |
+   - Attendez la propagation DNS (de quelques minutes à quelques heures), puis revenez sur **Settings → Pages** : GitHub doit afficher que le domaine est vérifié, et propose alors la case **Enforce HTTPS** — cochez-la une fois disponible.
+
+Une fois ces deux points réglés, chaque `push` sur `main` (ou un déclenchement manuel via l'onglet **Actions**) construit et publie automatiquement le site sur https://issep2027.csited.be.
+
+> Note : la publication GitHub Pages via Actions nécessite un dépôt public, sauf si votre organisation dispose d'un abonnement GitHub Pro/Team/Enterprise permettant les Pages sur dépôt privé.
 
 ## Prochaines étapes suggérées
 
 - Remplacer les informations « à définir » (dates, lieu, tarifs, contact) une fois connues.
 - Ajouter les intervenants et le programme au fur et à mesure des confirmations.
 - Ajouter un logo dans `public/` et le référencer dans `.vitepress/config.mjs` (`themeConfig.logo`).
-- Ajouter un nom de domaine personnalisé si besoin (fichier `public/CNAME`).
