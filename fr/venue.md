@@ -1,7 +1,10 @@
 # Lieu
 
-- **Ville :** à définir (Belgique)
+<div class="warning custom-block">
+  <p>Plus de détails sur le lieu et sur la manière de rejoindre la ville de Namur seront ajoutés prochainement.</p>
+</div>
+
+- **Ville :** Namur, Belgique
 - **Adresse :** à définir
 - **Accès :** informations à venir (train, voiture, parking)
-
-> Les informations pratiques (plan d'accès, hébergements à proximité) seront ajoutées dès qu'elles seront confirmées.
+- **Hébergement :** informations à venir

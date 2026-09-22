@@ -222,3 +222,29 @@
     padding-bottom: 160px;
   }
 }
+
+/* "Co-organised by:" logos in the footer, above the copyright line.
+   VitePress's own base styles set `img { display: block }`, which made
+   the two logos stack on separate lines instead of sitting side by side -
+   wrapping them in a centered flex row fixes that and gives a clean,
+   even gap between them regardless of their own widths. */
+.VPFooter .message {
+  margin-bottom: 12px;
+}
+
+.footer-logos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 8px;
+}
+
+.footer-logo {
+  height: 32px;
+  width: auto;
+}
+
+.footer-logo-csited {
+  height: 26px;
+}

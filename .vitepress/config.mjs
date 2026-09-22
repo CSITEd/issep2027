@@ -23,7 +23,12 @@ export default defineConfig({
           { text: 'Committees', link: '/committees' },
         ],
         footer: {
-          message: 'Website for the ISSEP 2027 conference.',
+          message:
+            'Co-organised by:<br>' +
+            '<span class="footer-logos">' +
+            '<img src="/csited-logo.png" alt="Computer Science and IT in Education ASBL" class="footer-logo footer-logo-csited" />' +
+            '<img src="/unamur-logo.svg" alt="University of Namur" class="footer-logo" />' +
+            '</span>',
           copyright: '© 2026–2027 ISSEP',
         },
       },
@@ -41,7 +46,12 @@ export default defineConfig({
           { text: 'Comités', link: '/fr/committees' },
         ],
         footer: {
-          message: 'Site de la conférence ISSEP 2027.',
+          message:
+            'Co-organisé par :<br>' +
+            '<span class="footer-logos">' +
+            '<img src="/csited-logo.png" alt="Computer Science and IT in Education ASBL" class="footer-logo footer-logo-csited" />' +
+            '<img src="/unamur-logo.svg" alt="Université de Namur" class="footer-logo" />' +
+            '</span>',
           copyright: '© 2026–2027 ISSEP',
         },
         outline: {

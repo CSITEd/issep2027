@@ -18,7 +18,7 @@ hero:
 
 features:
   - title: Venue
-    details: Practical information about where the conference will take place.
+    details: The conference will take place in rooms of the University of Namur, located in the city of Namur, capital of Wallonia, the southern region of Belgium.
   - title: Committees
-    details: Organizing and scientific committees, to be announced.
+    details: The different committees are currently being formed and their compositions will be published soon, as members are confirmed.
 ---

@@ -18,7 +18,7 @@ hero:
 
 features:
   - title: Lieu
-    details: Informations pratiques sur l'endroit où se déroulera la conférence.
+    details: La conférence se déroulera dans les locaux de l'Université de Namur, située dans la ville de Namur, capitale de la Wallonie, la région sud de la Belgique.
   - title: Comités
-    details: Comités d'organisation et scientifique, à annoncer.
+    details: Les différents comités sont en cours de constitution et leur composition sera publiée prochainement, au fur et à mesure des confirmations.
 ---
