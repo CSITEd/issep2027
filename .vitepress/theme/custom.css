@@ -1,4 +1,44 @@
 /**
+ * Make content tables (e.g. the committees tables) span the full width of
+ * the text column instead of shrinking to fit their content, on screens
+ * wide enough for that to look good (tablet/desktop).
+ *
+ * VitePress's own default theme sets tables to `display: block; overflow-x:
+ * auto;` so wide tables can scroll horizontally on narrow screens. But an
+ * element with `display: block` is no longer a CSS table box, so `width`
+ * and `table-layout` on it don't reach the actual column layout at all -
+ * the browser still renders the rows/cells as an internal anonymous table
+ * that shrinks to fit its content, floating inside the now-wider block box.
+ * That's the gap of empty space that was showing up after the last column.
+ * Switching back to `display: table` makes the element itself the table
+ * box again, so width: 100% / table-layout: fixed actually apply.
+ *
+ * table-layout: fixed splits the width evenly across columns, which reads
+ * fine for a handful of columns on a tablet/phone-landscape-sized screen
+ * or wider, but would squeeze a table with many columns unreadably narrow
+ * on a phone in portrait mode. So this only kicks in from 640px up; below
+ * that, tables fall back to VitePress's own default (untouched) behavior:
+ * content-sized columns that scroll horizontally if they don't fit, which
+ * stays readable regardless of how many columns a future table has.
+ */
+@media (min-width: 640px) {
+  .vp-doc table {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+}
+
+.vp-doc table td,
+.vp-doc table th {
+  /* Only break inside a word when it genuinely doesn't fit on its own line
+     (e.g. a long institution name in a narrow column) - unlike
+     word-break: break-word, this doesn't split short words like "Belgium"
+     just because the table has been squeezed onto a small screen. */
+  overflow-wrap: break-word;
+}
+
+/**
  * Full-bleed photo background for the home page hero section,
  * in the style of https://issep2025.uni-trier.de/ and https://issep2026.tlu.ee/
  */
