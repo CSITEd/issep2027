@@ -5,6 +5,9 @@ hero:
   name: "ISSEP 2027"
   text: "ISSEP Conference — Belgium"
   tagline: "Exact dates to be confirmed — 2027"
+  image:
+    src: /namur-landscape.jpg
+    alt: View of Namur, Belgium
   actions:
     - theme: brand
       text: Venue
