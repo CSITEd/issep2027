@@ -1,12 +1,12 @@
-# Programme
+# Program
 
-> Le programme détaillé de l'édition 2027 sera publié prochainement.
+> The detailed program for the 2027 edition will be published soon.
 
-## Aperçu
+## Overview
 
-| Horaire      | Session      | Intervenant  |
+| Time         | Session      | Speaker      |
 | ------------ | ------------ | ------------ |
-| À définir    | À définir    | À définir    |
-| À définir    | À définir    | À définir    |
+| TBD          | TBD          | TBD          |
+| TBD          | TBD          | TBD          |
 
-Revenez consulter cette page régulièrement : elle sera mise à jour au fur et à mesure que le programme se précise.
+Check back regularly: this page will be updated as the program takes shape.

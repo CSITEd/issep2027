@@ -1,12 +1,12 @@
-# Intervenants
+# Speakers
 
-> La liste des intervenants de l'édition 2027 sera annoncée prochainement.
+> The list of speakers for the 2027 edition will be announced soon.
 
 <!--
-Dupliquez ce bloc pour chaque intervenant confirmé :
+Duplicate this block for each confirmed speaker:
 
-## Prénom Nom
-*Titre / Organisation*
+## First Last
+*Title / Organization*
 
-Courte biographie (2-3 phrases).
+Short bio (2-3 sentences).
 -->

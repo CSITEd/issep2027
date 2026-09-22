@@ -1,8 +1,8 @@
 # Contact
 
-Une question à propos de la conférence ISSEP 2027 ?
+Questions about the ISSEP 2027 conference?
 
-- **Email :** contact@issep2027.example
-- **Réseaux sociaux :** à venir
+- **Email:** contact@issep2027.example
+- **Social media:** coming soon
 
-> Remplacez ces coordonnées par les informations officielles de l'organisation.
+> Replace these details with the organization's official contact information.

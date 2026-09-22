@@ -1,9 +1,9 @@
-# Inscription
+# Registration
 
-Les inscriptions à la conférence ISSEP 2027 ouvriront prochainement.
+Registration for the ISSEP 2027 conference will open soon.
 
-- **Tarif standard :** à définir
-- **Tarif réduit :** à définir
-- **Date limite d'inscription :** à définir
+- **Standard rate:** TBD
+- **Reduced rate:** TBD
+- **Registration deadline:** TBD
 
-> Un lien ou un formulaire d'inscription sera ajouté ici dès son ouverture.
+> A registration link or form will be added here once available.

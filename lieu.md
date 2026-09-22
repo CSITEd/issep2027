@@ -1,7 +1,7 @@
-# Lieu
+# Venue
 
-- **Ville :** à définir (Belgique)
-- **Adresse :** à définir
-- **Accès :** informations à venir (train, voiture, parking)
+- **City:** TBD (Belgium)
+- **Address:** TBD
+- **Access:** details coming soon (train, car, parking)
 
-> Les informations pratiques (plan d'accès, hébergements à proximité) seront ajoutées dès qu'elles seront confirmées.
+> Practical information (map, nearby accommodation) will be added once confirmed.
