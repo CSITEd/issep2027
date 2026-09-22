@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: "ISSEP 2027"
-  text: "Conférence ISSEP — Belgique"
-  tagline: "Dates précises à confirmer — 2027"
+  text: "La 20<sup>e</sup> conférence internationale sur l'informatique à l'école"
+  tagline: "26-29 septembre 2027\nNamur, Belgique"
   image:
     src: /namur-landscape.jpg
     alt: Vue de Namur, Belgique

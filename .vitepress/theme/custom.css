@@ -100,6 +100,24 @@
   background-clip: unset !important;
 }
 
+/* Name and text each get their own line, instead of just flowing/wrapping
+   together as one heading. */
+.VPHero.has-image .name,
+.VPHero.has-image .text {
+  display: block;
+}
+
+.VPHero.has-image .text {
+  font-size: 30px;
+  line-height: 35px;
+}
+
+/* Lets a literal "\n" in the tagline frontmatter (e.g. "date\nplace")
+   render as an actual line break instead of being collapsed to a space. */
+.VPHero.has-image .tagline {
+  white-space: pre-line;
+}
+
 /* Keep the outline ("alt") button legible on top of the photo */
 .VPHero.has-image .actions .VPButton.alt {
   color: #ffffff !important;
