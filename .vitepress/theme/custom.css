@@ -112,6 +112,20 @@
   background-color: rgba(255, 255, 255, 0.16) !important;
 }
 
+/* Keep the navbar (title, links, language switcher) readable while it
+   overlaps the home hero photo. VitePress itself adds "top" to .VPNavBar
+   only while the page is scrolled to the very top of the home page -
+   exactly the moment the hero image is visible behind the bar - and
+   removes it as soon as you scroll past the hero, so this only touches
+   the navbar for as long as the image is actually underneath it. These
+   are the same CSS variables the navbar's own links/title already use
+   for their color, redefined only within the navbar for that moment. */
+.VPNavBar.home.top {
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: rgba(255, 255, 255, 0.84);
+  --vp-c-brand-1: #ffffff;
+}
+
 @media (min-width: 640px) {
   .VPHero.has-image .container {
     padding-top: 128px;
