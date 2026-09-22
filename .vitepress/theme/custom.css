@@ -144,6 +144,25 @@
   --vp-c-brand-1: #ffffff;
 }
 
+/* The language switcher and "extra" dropdown menus are separate floating
+   panels with their own (light/dark) background - they are technically
+   nested inside the navbar in the DOM, so without this they'd inherit the
+   white text above and become unreadable against their own light panel.
+   These are simply VitePress's normal, non-white text colors put back for
+   that popup only, restoring the color they'd have without the override
+   above. */
+.VPNavBar.home.top .VPMenu {
+  --vp-c-text-1: #3c3c43;
+  --vp-c-text-2: #67676c;
+  --vp-c-brand-1: #3451b2;
+}
+
+.dark .VPNavBar.home.top .VPMenu {
+  --vp-c-text-1: #dfdfd6;
+  --vp-c-text-2: #98989f;
+  --vp-c-brand-1: #a8b1ff;
+}
+
 @media (min-width: 640px) {
   .VPHero.has-image .container {
     padding-top: 128px;
