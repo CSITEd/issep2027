@@ -4,20 +4,18 @@ layout: home
 hero:
   name: "ISSEP 2027"
   text: "Conférence ISSEP — Belgique"
-  tagline: "Dates et lieu précis à confirmer — 2027"
+  tagline: "Dates précises à confirmer — 2027"
   actions:
     - theme: brand
-      text: Voir le programme
-      link: /fr/programme
+      text: Lieu
+      link: /fr/venue
     - theme: alt
-      text: S'inscrire
-      link: /fr/inscription
+      text: Comités
+      link: /fr/committees
 
 features:
-  - title: Programme
-    details: Sessions, ateliers et interventions, mis à jour au fil de l'organisation.
-  - title: Intervenants
-    details: Une sélection d'experts et de conférenciers invités à venir.
-  - title: Inscription
-    details: Réservez votre place dès l'ouverture des inscriptions.
+  - title: Lieu
+    details: Informations pratiques sur l'endroit où se déroulera la conférence.
+  - title: Comités
+    details: Comités d'organisation et scientifique, à annoncer.
 ---

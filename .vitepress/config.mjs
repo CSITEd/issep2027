@@ -21,11 +21,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/' },
-          { text: 'Program', link: '/programme' },
-          { text: 'Speakers', link: '/intervenants' },
-          { text: 'Venue', link: '/lieu' },
-          { text: 'Registration', link: '/inscription' },
-          { text: 'Contact', link: '/contact' },
+          { text: 'Venue', link: '/venue' },
+          { text: 'Committees', link: '/committees' },
         ],
         footer: {
           message: 'Website for the ISSEP 2027 conference.',
@@ -42,11 +39,8 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Accueil', link: '/fr/' },
-          { text: 'Programme', link: '/fr/programme' },
-          { text: 'Intervenants', link: '/fr/intervenants' },
-          { text: 'Lieu', link: '/fr/lieu' },
-          { text: 'Inscription', link: '/fr/inscription' },
-          { text: 'Contact', link: '/fr/contact' },
+          { text: 'Lieu', link: '/fr/venue' },
+          { text: 'Comités', link: '/fr/committees' },
         ],
         footer: {
           message: 'Site de la conférence ISSEP 2027.',
