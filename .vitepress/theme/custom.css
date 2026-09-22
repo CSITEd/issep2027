@@ -47,6 +47,12 @@
   position: relative;
   overflow: hidden;
   min-height: 60vh;
+  /* The photo fills the whole hero box, including its own padding, and
+     that box happens to end just a few pixels above the Features section
+     below it - so with no margin here, the photo visually runs right up
+     against (and very slightly under) the features cards. This adds real
+     breathing room between the two. */
+  margin-bottom: 48px;
 }
 
 /* Must stay position: static, otherwise it becomes the containing block for
