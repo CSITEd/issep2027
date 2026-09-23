@@ -24,6 +24,7 @@
 | Nom | Institution | Pays |
 | --- | --- | --- |
 | Valentina Dagienė | Université de Vilnius | Lituanie |
+| Diane Vassallo | Université de Malte | Malte |
 
 ## Comité d'organisation
 

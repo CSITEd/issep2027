@@ -24,6 +24,7 @@
 | Name | Institution | Country |
 | --- | --- | --- |
 | Valentina Dagienė | University of Vilnius | Lithuania |
+| Diane Vassallo | University of Malta | Malta |
 
 ## Organising Committee
 
