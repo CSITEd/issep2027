@@ -9,7 +9,7 @@
 | Nom | Institution | Pays |
 | --- | --- | --- |
 | Sébastien Combéfis | Computer Science and IT in Education ASBL | Belgique |
-| Gonzague Yerneaux | University of Namur | Belgique |
+| Gonzague Yerneaux | Université de Namur | Belgique |
 
 ## Comité de pilotage
 
@@ -19,13 +19,18 @@
 
 *À annoncer.*
 
+## Présidence du consortium doctoral
+
+| Nom | Institution | Pays |
+| --- | --- | --- |
+| Valentina Dagienė | Université de Vilnius | Lituanie |
+
 ## Comité d'organisation
 
 | Nom | Institution | Pays | Rôle |
 | --- | --- | --- | --- |
 | Sébastien Combéfis | Computer Science and IT in Education ASBL | Belgique | Présidence de la conférence |
-| Gonzague Yerneaux | University of Namur | Belgique | Présidence de la conférence |
-| Julie Henry | University of Namur | Belgique | |
-| Wim Vanhoof | University of Namur | Belgique | |
-| Fanny Boraita | University of Namur | Belgique | |
-| | | | Présidence du consortium doctoral |
+| Gonzague Yerneaux | Université de Namur | Belgique | Présidence de la conférence |
+| Julie Henry | Université de Namur | Belgique | |
+| Wim Vanhoof | Université de Namur | Belgique | |
+| Fanny Boraita | Université de Namur | Belgique | |

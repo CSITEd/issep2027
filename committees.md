@@ -19,6 +19,12 @@
 
 *To be announced.*
 
+## Doctoral Consortium Chairs
+
+| Name | Institution | Country |
+| --- | --- | --- |
+| Valentina Dagienė | University of Vilnius | Lithuania |
+
 ## Organising Committee
 
 | Name | Institution | Country | Role |
@@ -28,4 +34,3 @@
 | Julie Henry | University of Namur | Belgium | |
 | Wim Vanhoof | University of Namur | Belgium | |
 | Fanny Boraita | University of Namur | Belgium | |
-| | | | Doctoral Consortium Chair |
