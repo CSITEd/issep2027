@@ -59,12 +59,24 @@
    the content column itself is narrower than 520px, so the map simply fills
    the column on narrow/mobile screens instead of overflowing or shrinking
    below what its own viewBox can read at (the SVG's viewBox keeps
-   everything - map, labels, icons - proportional as it shrinks). */
+   everything - map, labels, icons - proportional as it shrinks).
+
+   The card look (cream background, thin border, rounded corners) used to be
+   drawn only by the SVG's own background <rect>, so it only ever framed the
+   narrower 520px map itself. It's set here instead, on the full-width wrap,
+   so the same card now frames the whole content-width box - including the
+   side padding above on wide screens - rather than just the map graphic.
+   Colors match the SVG's former rect exactly, so there's no visible seam
+   where the SVG's own (now border-less) background fill sits inside it. */
 .belgium-map-wrap {
   box-sizing: border-box;
   width: 100%;
   margin: 24px 0;
   padding: 0 max(0px, calc((100% - 520px) / 2));
+  border: 1px solid #d8d2c0;
+  border-radius: 16px;
+  background-color: #f7f4ec;
+  border-width: 1.5px;
 }
 
 .belgium-map {
