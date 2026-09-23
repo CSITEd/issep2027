@@ -52,6 +52,70 @@
   padding-bottom: 16px;
 }
 
+/* The schematic "how to reach Namur" map on the venue page: the wrap box
+   itself spans the full width of the content column, but its left/right
+   padding keeps the map graphic at the same visual width as before (520px)
+   on wide enough screens, centering it. max() clamps that padding to 0 once
+   the content column itself is narrower than 520px, so the map simply fills
+   the column on narrow/mobile screens instead of overflowing or shrinking
+   below what its own viewBox can read at (the SVG's viewBox keeps
+   everything - map, labels, icons - proportional as it shrinks). */
+.belgium-map-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 24px 0;
+  padding: 0 max(0px, calc((100% - 520px) / 2));
+}
+
+.belgium-map {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* The "how to get to Belgium/Namur" bullet lists on the venue page: each
+   item already starts with its own emoji (a plane, a train, ...), which
+   already reads as the list marker - a native bullet in front of it too
+   would be a redundant second marker. ul.icon-list matches the default
+   theme's own ".vp-doc ul" rule in specificity (class + element) rather
+   than losing to it. A small left margin is kept (rather than 0) so the
+   list still reads as set apart from the paragraph text above/below it,
+   even without a bullet of its own. */
+ul.icon-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 12px;
+}
+
+/* Attribution line required by the map outline's CC BY-SA license (see the
+   link itself) - small and muted, but readable, right under the map. Pulled
+   in close underneath it (negative top margin cancels most of the map's own
+   bottom margin) so it reads as part of the map rather than a separate
+   block.
+
+   Selector is "p.map-credit" rather than just ".map-credit" to match the
+   default theme's own ".vp-doc p" rule in specificity (class + element)
+   instead of losing to it - a bare class selector is less specific than
+   that and its margin would otherwise win regardless of source order. */
+p.map-credit {
+  margin: -20px 0 8px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+
+/* The bullet legend right after the credit line (bus/train/plane travel
+   options) - centered under the map, close beneath the credit line, and
+   without native bullet markers since each line already starts with its
+   own emoji icon. Same specificity reasoning as above, against the default
+   theme's ".vp-doc ul" margin. */
+p.map-credit + ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
 /**
  * Full-bleed photo background for the home page hero section,
  * in the style of https://issep2025.uni-trier.de/ and https://issep2026.tlu.ee/
