@@ -381,13 +381,29 @@ p.map-credit + ul {
    below the navbar) once you scroll far enough that it otherwise would
    have scrolled off the top. height/max-height replace the default
    theme's own height: 100vh, which was sized to work together with the
-   (now removed) padding-top hack. */
+   (now removed) padding-top hack.
+
+   overflow is reset to visible because the default theme's own rule for
+   this element sets overflow-y: auto (for very long outlines, to scroll
+   internally within its old fixed 100vh box). Left as "auto", this element
+   stays a genuine scroll container - and on a page where the outline's
+   content is even a few pixels taller than the max-height above (easy to
+   hit, since the two are computed independently), the browser starts
+   routing the mouse wheel/trackpad to it instead of the page the moment
+   the cursor is over it. That's what caused the reported bug: scrolling
+   with the cursor over "On this page" scrolled the outline's own content
+   by those few pixels instead of the page, making part of it slide out of
+   view. This site's outlines are always short enough to fit comfortably,
+   so there's nothing that actually needs to scroll internally - visible
+   simply lets a rare, slightly-too-tall outline extend past max-height
+   instead, which is harmless, rather than becoming a second scroll target. */
 .VPDoc:has(.page-banner) .aside-container {
   position: sticky;
   top: calc(var(--vp-nav-height) + 32px);
   padding-top: 0;
   height: auto;
   max-height: calc(100vh - var(--vp-nav-height) - 32px - 2rem);
+  overflow: visible;
 }
 
 /* The page's real H1 is now redundant with the banner's own title, so
