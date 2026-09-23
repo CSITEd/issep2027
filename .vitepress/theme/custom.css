@@ -39,6 +39,20 @@
 }
 
 /**
+ * The "warning" boxes on this site (venue.md, committees.md, ...) are
+ * written as raw HTML rather than the ::: warning ::: markdown shorthand,
+ * specifically to omit the "WARNING" title the shorthand would otherwise
+ * add. But the default theme's own padding for these boxes is asymmetric
+ * on purpose - 16px on top, only 8px on the bottom - to leave room for
+ * that title. Without a title, that reads as uneven spacing around the
+ * text. Since every custom block on this site is title-less by design,
+ * padding-bottom is simply matched to the existing 16px padding-top here.
+ */
+.custom-block {
+  padding-bottom: 16px;
+}
+
+/**
  * Full-bleed photo background for the home page hero section,
  * in the style of https://issep2025.uni-trier.de/ and https://issep2026.tlu.ee/
  */
