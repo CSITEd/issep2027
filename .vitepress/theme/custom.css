@@ -309,6 +309,57 @@ p.map-credit + ul {
   height: 26px;
 }
 
+/* AI-disclosure note on its own centered line below the copyright text (see
+   config.mjs for the markup and the reasoning behind the EU "Basic"
+   AI-disclosure icon). VitePress's default theme renders "copyright" as a
+   single block of text - turning it into a centered flex column adds the
+   note as a second line underneath it. */
+.VPFooter .copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* align-items: flex-start (rather than center) matters here specifically
+   because the disclosure text wraps onto two lines on narrow/mobile
+   screens: with "center", the icons end up vertically centered against
+   the full two-line block, floating oddly in the middle instead of sitting
+   next to where the text starts. "flex-start" keeps them pinned to the top,
+   level with the first line - the small margin-top nudges them down by eye
+   to that first line's cap-height/text baseline rather than the top of its
+   (slightly taller) line box. */
+.ai-disclosure {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+}
+
+.ai-disclosure-icon {
+  height: 14px;
+  width: auto;
+  margin-top: 2px;
+}
+
+/* Two <img> variants (black/white) are always both in the markup - only one
+   is shown at a time, depending on light/dark mode, since the footer's own
+   background flips between near-white and near-black. Light mode (default)
+   shows the black icon; .dark (added to <html> by the theme's dark mode
+   toggle) swaps to the white one instead. */
+.ai-disclosure-icon.icon-dark {
+  display: none;
+}
+
+.dark .ai-disclosure-icon.icon-light {
+  display: none;
+}
+
+.dark .ai-disclosure-icon.icon-dark {
+  display: inline-block;
+}
+
 /**
  * Mini "hero" banner shown above the content of every page except the
  * home page - the same photo as the home page hero, as a visual callback
