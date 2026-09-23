@@ -251,7 +251,16 @@
  * the sidebar's own vertical position should account for.
  */
 .VPDoc:has(.page-banner) {
-  --vp-doc-top-height: 212px; /* banner's own 180px + 32px margin-bottom */
+  /* VitePress adds a further 48px of its own on top of this variable when
+     positioning the outline sidebar (it's the same 48px gap it normally
+     keeps between the navbar and the doc's own top padding, which lines up
+     with the doc content in the default layout). Since the banner replaces
+     that top padding here (see padding-top: 0 below), the sidebar would end
+     up 48px lower than the actual page content - so this is set to the
+     banner's own height + margin-bottom (212px) minus that 48px, which
+     measured out to 180px in practice, to line the "On this page" title up
+     with the first line of content instead. */
+  --vp-doc-top-height: 180px;
   /* .VPDoc's own top padding (its normal breathing room above the H1)
      would otherwise leave a gap between the navbar and the banner - the
      banner already gets its own spacing via margin-bottom below. */
