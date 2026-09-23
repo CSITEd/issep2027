@@ -243,24 +243,17 @@
  * and overlapped by, the outline sidebar). The width: 100vw + negative-
  * margin trick makes it span edge to edge like the home hero does.
  *
- * The outline sidebar ("On this page") is itself position: fixed, pinned
- * near the top of the viewport regardless of where it sits in the DOM -
- * so without the --vp-doc-top-height override below, it would still be
- * drawn over the banner. That variable is VitePress's own built-in hook
- * for exactly this: extra fixed content above the doc, via doc-top, that
- * the sidebar's own vertical position should account for.
+ * The outline sidebar ("On this page") is itself position: fixed by
+ * default, pinned to a constant vertical offset that never changes as the
+ * page scrolls. That's normally a small, barely-noticeable gap - but here
+ * it has to leave room for the banner, which turns into a lot of unused
+ * space above the outline list once the banner has scrolled out of view.
+ * The rule below (further down, near .page-banner) switches it to
+ * position: sticky instead, so it starts level with the actual page
+ * content and then rises to sit just below the navbar as soon as you
+ * scroll past that point.
  */
 .VPDoc:has(.page-banner) {
-  /* VitePress adds a further 48px of its own on top of this variable when
-     positioning the outline sidebar (it's the same 48px gap it normally
-     keeps between the navbar and the doc's own top padding, which lines up
-     with the doc content in the default layout). Since the banner replaces
-     that top padding here (see padding-top: 0 below), the sidebar would end
-     up 48px lower than the actual page content - so this is set to the
-     banner's own height + margin-bottom (212px) minus that 48px, which
-     measured out to 180px in practice, to line the "On this page" title up
-     with the first line of content instead. */
-  --vp-doc-top-height: 180px;
   /* .VPDoc's own top padding (its normal breathing room above the H1)
      would otherwise leave a gap between the navbar and the banner - the
      banner already gets its own spacing via margin-bottom below. */
@@ -299,6 +292,24 @@
   line-height: 1.2;
   text-align: center;
   border: none !important;
+}
+
+/* Let "On this page" rise up and stick just below the navbar as you
+   scroll, instead of staying fixed at a constant offset that leaves a big
+   empty gap above it once the banner has scrolled away (see the longer
+   comment above, near .VPDoc:has(.page-banner)). With sticky, it starts at
+   its normal position in the layout - the same row as the actual content,
+   so no extra offset is needed there - and only kicks in (sticking 32px
+   below the navbar) once you scroll far enough that it otherwise would
+   have scrolled off the top. height/max-height replace the default
+   theme's own height: 100vh, which was sized to work together with the
+   (now removed) padding-top hack. */
+.VPDoc:has(.page-banner) .aside-container {
+  position: sticky;
+  top: calc(var(--vp-nav-height) + 32px);
+  padding-top: 0;
+  height: auto;
+  max-height: calc(100vh - var(--vp-nav-height) - 32px - 2rem);
 }
 
 /* The page's real H1 is now redundant with the banner's own title, so
