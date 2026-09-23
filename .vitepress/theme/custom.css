@@ -53,6 +53,21 @@
      against (and very slightly under) the features cards. This adds real
      breathing room between the two. */
   margin-bottom: 48px;
+  /* The photo itself lives directly on this element as a CSS background
+     (rather than the <img> the default theme renders - hidden below) so
+     it can use background-attachment: fixed. With "fixed", the browser
+     computes both the image's cover-scale and its position against the
+     viewport instead of against this element's own box - and since
+     .page-banner (the mini-hero on other pages) uses this exact same
+     background-image/size/position/attachment, the two end up sampling
+     the *same* fixed "canvas" at whatever screen position each of them
+     occupies. That's what keeps a landmark like the citadel visually in
+     the same spot when navigating from this page to another one, even
+     though the hero and the mini-hero are very different heights. */
+  background-image: url(/namur-landscape.jpg);
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
 }
 
 /* Must stay position: static, otherwise it becomes the containing block for
@@ -74,48 +89,11 @@
   margin: 0 auto;
 }
 
-/* Turn the hero image into a full-bleed background instead of a side image */
+/* The default theme's own <img>-based hero image (and its blurred gradient
+   blob backdrop) is no longer used - the photo is a CSS background on
+   .VPHero.has-image itself now (see above), so this is just hidden. */
 .VPHero.has-image .image {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  margin: 0 !important;
-  transform: none !important;
-  order: 0 !important;
-}
-
-.VPHero.has-image .image-container {
-  position: absolute !important;
-  inset: 0 !important;
-  top: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  transform: none !important;
-}
-
-/* Hide the default blurred gradient blob behind the image */
-.VPHero.has-image .image-bg {
   display: none !important;
-}
-
-.VPHero.has-image .image-src {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  /* The default theme centers this image with translate(-50%, -50%);
-     without resetting it, the photo gets shifted up-left by half its
-     own size, which looked like "cropped and stuck to the left". */
-  transform: none !important;
-  object-fit: cover;
-  border-radius: 0 !important;
 }
 
 /* Dark gradient overlay so the title stays readable over the photo */
@@ -247,4 +225,73 @@
 
 .footer-logo-csited {
   height: 26px;
+}
+
+/**
+ * Mini "hero" banner shown above the content of every page except the
+ * home page - the same photo as the home page hero, as a visual callback
+ * to it, with the page's own title (taken from its first H1, same as
+ * VitePress would use for <title>/SEO) shown over it in white.
+ *
+ * It's injected via the "doc-top" slot (see theme/index.mjs), which
+ * places it above the whole doc+aside two-column area - full width,
+ * unlike "doc-before" which sits inside the content column only (next to,
+ * and overlapped by, the outline sidebar). The width: 100vw + negative-
+ * margin trick makes it span edge to edge like the home hero does.
+ *
+ * The outline sidebar ("On this page") is itself position: fixed, pinned
+ * near the top of the viewport regardless of where it sits in the DOM -
+ * so without the --vp-doc-top-height override below, it would still be
+ * drawn over the banner. That variable is VitePress's own built-in hook
+ * for exactly this: extra fixed content above the doc, via doc-top, that
+ * the sidebar's own vertical position should account for.
+ */
+.VPDoc:has(.page-banner) {
+  --vp-doc-top-height: 212px; /* banner's own 180px + 32px margin-bottom */
+  /* .VPDoc's own top padding (its normal breathing room above the H1)
+     would otherwise leave a gap between the navbar and the banner - the
+     banner already gets its own spacing via margin-bottom below. */
+  padding-top: 0;
+}
+
+.page-banner {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-bottom: 32px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Same image, size, position AND attachment: fixed as .VPHero.has-image
+     (the home page hero) - see the long comment there. That's what makes
+     this show, pixel for pixel, the same slice of the photo the hero
+     shows at that same screen position, so nothing appears to "jump"
+     when navigating from the home page to this one. */
+  background:
+    linear-gradient(rgba(10, 14, 22, 0.55), rgba(10, 14, 22, 0.55)),
+    url(/namur-landscape.jpg) center top / cover no-repeat fixed;
+}
+
+.page-banner-title {
+  margin: 0;
+  padding: 0 24px;
+  color: #ffffff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  border: none !important;
+}
+
+/* The page's real H1 is now redundant with the banner's own title, so
+   it's hidden rather than removed - this keeps VitePress's normal
+   <title>/SEO/outline behavior, which is driven by that H1, working
+   exactly as before. :has() is used rather than a sibling combinator
+   because the banner (in the doc-top slot) sits above the whole
+   doc+aside two-column area, several levels above the actual H1. */
+.VPDoc:has(.page-banner) h1:first-of-type:not(.page-banner-title) {
+  display: none;
 }
